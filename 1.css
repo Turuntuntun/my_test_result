@@ -1,0 +1,43 @@
+.button{
+	width: 60px;
+	height: 60px;
+	border-radius: 60px;
+	border: 3px solid gray;
+	position: relative;
+}
+input[type='checkbox']{
+	display: none;
+}
+label{
+	position: absolute;
+	display: block;
+    width: 60px;
+    height:60px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+input[type=checkbox] ~ label:before{
+	position: absolute;
+	font-size: 40px;
+	margin-left:20px;
+	margin-top: 8px;
+	background-color:white;
+}
+#check1:not(:checked)+#check2:not(:checked) ~ label:first-of-type, #check1:checked+#check2:not(:checked) ~ label:last-of-type,  #check1:checked+#check2:checked ~ label:first-of-type{
+    z-index: 10;
+}
+#check1:not(:checked)+#check2:not(:checked) ~ label:last-of-type,  #check1:checked+#check2:not(:checked) ~ label:first-of-type, #check1:checked+#check2:checked ~ label:last-of-type{
+    z-index: 8;
+}
+#check1:not(:checked)+#check2:not(:checked) ~ label:before{
+	content:'4';	
+}
+#check1:checked+#check2:not(:checked) ~ label:before{
+	content:'3';
+}
+#check1:checked+#check2:checked ~ label:before{
+	content:'2';
+}
+#check1:not(:checked)+#check2:checked ~ label:before{
+	content:'1';
+}
